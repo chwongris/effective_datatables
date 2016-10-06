@@ -59,20 +59,20 @@ module EffectiveDatatablesPrivateHelper
       form.input name, label: false, required: false, value: value,
         as: :string,
         placeholder: placeholder,
-        input_html: { name: nil, value: value, title: title, pattern: pattern, autocomplete: 'off', data: {'column-name' => opts[:name], 'column-index' => opts[:index]} }
+        input_html: { name: nil, value: value, title: title, pattern: pattern, autocomplete: 'off', data: {'column-name' => opts[:name], 'column-index' => opts[:index]}, class:"form-control" }
     when :date
       form.input name, label: false, required: false, value: value,
         as: (ActionView::Helpers::FormBuilder.instance_methods.include?(:effective_date_picker) ? :effective_date_picker : :string),
         placeholder: placeholder,
         input_group: false,
-        input_html: { name: nil, value: value, title: title, autocomplete: 'off', data: {'column-name' => opts[:name], 'column-index' => opts[:index]} },
+        input_html: { name: nil, value: value, title: title, autocomplete: 'off', data: {'column-name' => opts[:name], 'column-index' => opts[:index]}, class:"form-control" },
         input_js: { useStrict: true, keepInvalid: true }
     when :datetime
       form.input name, label: false, required: false, value: value,
         as: (ActionView::Helpers::FormBuilder.instance_methods.include?(:effective_date_time_picker) ? :effective_date_time_picker : :string),
         placeholder: placeholder,
         input_group: false,
-        input_html: { name: nil, value: value, title: title, autocomplete: 'off', data: {'column-name' => opts[:name], 'column-index' => opts[:index]} },
+        input_html: { name: nil, value: value, title: title, autocomplete: 'off', data: {'column-name' => opts[:name], 'column-index' => opts[:index]}, class:"form-control" },
         input_js: { useStrict: true, keepInvalid: true } # Keep invalid format like "2015-11" so we can still filter by year, month or day
     when :select, :boolean
       form.input name, label: false, required: false, value: value,
